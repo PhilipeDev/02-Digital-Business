@@ -42,8 +42,10 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <c:url value="/jogador/pesquisar" var="acao"/>
+    <!-- <form action="<c:url value="/jogador/pesquisar"/>" class="form-inline my-2 my-lg-0"> -->
+    <form method="get" action="${acao}" class="form-inline my-2 my-lg-0">
+      <input name="nome" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

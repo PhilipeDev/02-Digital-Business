@@ -40,8 +40,8 @@ http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 			value="oracle.jdbc.OracleDriver" />
 		<property name="url"
 			value="jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl" />
-		<property name="username" value="PF0392" />
-		<property name="password" value="EDF452" />
+		<property name="username" value="RM79307" />
+		<property name="password" value="070797" />
 	</bean>
 
 	<!-- Transações -->

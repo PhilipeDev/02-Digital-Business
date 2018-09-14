@@ -22,6 +22,27 @@ public class JogadorController {
 	private JogadorDAO dao;
 	
 	@Transactional
+	@PostMapping("ativar")
+	public String ativarJogador(int codigo, RedirectAttributes r) {
+		Jogador jogador = dao.buscar(codigo);
+		if(jogador.isAtivo() == false) {
+			jogador.setAtivo(true);
+			r.addFlashAttribute("msg","Jogador desativado.");
+		}else {
+			jogador.setAtivo(false);
+			r.addFlashAttribute("msg","Jogador ativado.");
+		}
+		dao.atualizar(jogador);
+		
+		return "redirect:/jogador/listar";
+	}
+	
+	@GetMapping("pesquisar")
+	public ModelAndView pesquisar(String nome) {
+		return new ModelAndView("jogador/lista").addObject("jogadores", dao.buscarPorNome(nome));
+	}
+	
+	@Transactional
 	@PostMapping("excluir")
 	public String processsarExcluir(int codigo, RedirectAttributes r) {
 		try {
