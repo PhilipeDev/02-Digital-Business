@@ -11,6 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @SequenceGenerator(name="partida",allocationSize=1)
@@ -25,6 +27,7 @@ public class Partida {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="dt_partida")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar data;
 	
 	private String timeA;
